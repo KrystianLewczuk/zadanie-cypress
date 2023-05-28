@@ -8,36 +8,48 @@ Given("I go to Maps homepage", () => {
   cy.get("button").contains("Zaakceptuj wszystko").click({ force: true })
   cy.visit('https://www.google.com/maps')
   // simply because going straight on maps is causing inifinite page load event after redirect
-});
+})
 
 When("I type value {string} into input field", (value: string) => {
   loc.inputField().should("be.enabled").clear().type(value)
-});
+})
 
 When("I click search button", () => {
   loc.searchButton().click()
-});
+})
 
 Then("Header for result should have value {string}", (value: string) => {
   loc.resultHeader().should("be.visible").contains(value)
-});
+})
 
 When("I click Directions button", () => {
   loc.directions().should("be.visible").click({ force: true })
-});
+})
 
 Then("Destination should be filled with Londyn, Wielka Brytania", () => {
   loc.destinationSetOnLondon().should("be.visible")
-});
+})
 
 When("I click share button", () => {
   loc.shareButton().should("be.visible").click({ force: true })
-});
+})
 
 Then("Pop-up with link to location is opened", () => {
   loc.popUpWindow().should("be.visible").contains("Udostępnij")
-});
+})
 
 Then("I verify the error message is shown", () => {
   loc.errorMessage().should("be.visible").contains("aaaabbcceeswas")
+})
+
+When("I fill start destination with {string}", (value: string) => {
+  loc.destinationInputField().should("be.visible").clear().type(value)
+})
+
+When("I click search button on start destination input field", () => {
+  loc.destinationSearchButton().should("be.visible").wait(1000).click()
+})
+
+Then("Error that no hints could be prepared is shown", () => {
+  loc.errorMessageNoHintsAvailable().should("be.visible").contains("Nie udało się wyznaczyć trasy z ")
 })

@@ -33,5 +33,17 @@ class MainPageLocators {
     errorMessage(){
         return cy.get('[role="main"] i')
     }
+
+    destinationInputField(){
+        return cy.get('#directions-searchbox-0 .tactile-searchbox-input')
+    }
+
+    destinationSearchButton(){
+        return cy.get('#directions-searchbox-0 button[data-tooltip="Szukaj"]')
+    }
+
+    errorMessageNoHintsAvailable(){
+        return cy.get('.fontBodyMedium[role="alert"] div ')
+    }
 }
 export default MainPageLocators

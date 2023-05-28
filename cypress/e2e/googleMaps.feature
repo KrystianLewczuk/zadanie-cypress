@@ -27,3 +27,14 @@ Feature: First feature
         When I type value "aaaabbcceeswas" into input field
         And I click search button
         Then I verify the error message is shown
+
+    Scenario: Fifth scenario - edgecase
+        Given I go to Maps homepage
+        When I type value "London" into input field
+        And I click search button
+        Then Header for result should have value "Londyn"
+        When I click Directions button
+        Then Destination should be filled with Londyn, Wielka Brytania
+        When I fill start destination with "Londyn, Wielka Brytania"
+        And I click search button on start destination input field
+        Then Error that no hints could be prepared is shown
