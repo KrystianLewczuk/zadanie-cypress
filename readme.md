@@ -34,3 +34,7 @@ P.S. The localization on google maps forced the results to be in polish (by ip),
 the values in feature file from Polish to English ones (fourth line for positive test cases)
 
 P.S.2 I used the gherkin with page object simply because I really enjoy working with this setup, however it is not always there for me, on current project we do not have the page objects 
+
+
+Update 28.05 
+Added edge case scenario + small code tweaks

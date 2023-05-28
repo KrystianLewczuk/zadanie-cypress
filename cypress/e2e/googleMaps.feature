@@ -28,7 +28,7 @@ Feature: First feature
         And I click search button
         Then I verify the error message is shown
 
-    Scenario: Fifth scenario - edgecase
+    Scenario: Fifth scenario - edge case
         Given I go to Maps homepage
         When I type value "London" into input field
         And I click search button
